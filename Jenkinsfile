@@ -9,15 +9,13 @@ pipeline {
     agent any
     stages {
         stage('Build Backend') {
-            environment {
-                DIR = 'backend'
-            }
             // when {
             //     changeset './backend'
             // }
             steps {
                 // build job: './templates/serviceTemplate.groovy', parameters: [string(name: 'DIR', value: 'backend')]
-                serviceTemplate(DIR)
+                //serviceTemplate(DIR)
+                build job: 'jenkins-microservice/backend'
             }
         }
     }
