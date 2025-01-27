@@ -16,7 +16,7 @@ pipeline {
                 // build job: './templates/serviceTemplate.groovy', parameters: [string(name: 'DIR', value: 'backend')]
                 //serviceTemplate(DIR)
                 // echo "Branch Name: ${env.BRANCH_NAME}"
-                build job: "backend/${env.CHANGE_ID}"
+                build job: "backend/${env.GIT_BRANCH}"
             }
         }
     }
