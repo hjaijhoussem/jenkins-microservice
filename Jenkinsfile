@@ -2,9 +2,9 @@ pipeline {
     agent any
     stages {
         stage('Build Backend') {
-            when {
-                changeset './backend'
-            }
+            // when {
+            //     changeset './backend'
+            // }
             steps {
                 build job: './templates/serviceTemplate', parameters: [string(name: 'DIR', value: 'backend')]
             }
