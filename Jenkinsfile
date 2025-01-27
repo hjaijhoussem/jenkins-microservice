@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('Build Backend') {
             when {
-                changeset 'Car-pooling-backend'
+                changeset 'backend'
             }
 
-            build job: './templates/serviceTemplate', parameters: [string(name: 'dir', value: 'hippo-rest')]
+            build job: './templates/serviceTemplate', parameters: [string(name: 'DIR', value: 'backend')]
         }
     }
     post {
