@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build Backend') {
             when {
-                changeset 'backend'
+                changeset './backend'
             }
             steps {
                 build job: './templates/serviceTemplate', parameters: [string(name: 'DIR', value: 'backend')]
