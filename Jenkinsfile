@@ -15,7 +15,7 @@ pipeline {
             steps {
                 // build job: './templates/serviceTemplate.groovy', parameters: [string(name: 'DIR', value: 'backend')]
                 //serviceTemplate(DIR)
-                build job: 'jenkins-microservice/backend/main'
+                build job: 'jenkins-microservice/backend/main', propagate: true
             }
         }
     }
