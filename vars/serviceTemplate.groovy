@@ -1,9 +1,9 @@
-def call(Map params = [:]) {
+def call(def DIR) {
     pipeline {
         agent any
-        parameters {
-            string(name: 'DIR', defaultValue: params.dir ?: '.', description: 'Directory to execute the build')
-        }
+        // parameters {
+        //     string(name: 'DIR', defaultValue: params.dir ?: '.', description: 'Directory to execute the build')
+        // }
         tools {
             maven '3.9.5'
         }
@@ -12,7 +12,7 @@ def call(Map params = [:]) {
             NEXUS_URL = 'localhost:6666'
             NEXUS_REPO = 'dockerhosted-repo'
             DOCKER_IMAGE_NAME = "car-pooling-be:${BUILD_ID}"
-            SERVICE_DIR = "${params.DIR}"
+            SERVICE_DIR = "${DIR}"
         }
         stages{
             stage('Build Artifact'){
