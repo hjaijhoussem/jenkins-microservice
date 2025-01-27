@@ -17,6 +17,7 @@ pipeline {
         stage('Build Artifact'){
             steps{
                 dir("${SERVICE_DIR}") {
+                    sh 'echo "Building artifact from child pipeline"'
                     sh 'mvn clean install -DskipTests'
                 }
             }
