@@ -6,7 +6,8 @@ pipeline {
             //     changeset './backend'
             // }
             steps {
-                build job: './templates/serviceTemplate.groovy', parameters: [string(name: 'DIR', value: 'backend')]
+                // build job: './templates/serviceTemplate.groovy', parameters: [string(name: 'DIR', value: 'backend')]
+                serviceTemplate(DIR: 'backend')
             }
         }
     }
