@@ -5,8 +5,9 @@ pipeline {
             when {
                 changeset 'backend'
             }
-
-            build job: './templates/serviceTemplate', parameters: [string(name: 'DIR', value: 'backend')]
+            steps {
+                build job: './templates/serviceTemplate', parameters: [string(name: 'DIR', value: 'backend')]
+            }
         }
     }
     post {
