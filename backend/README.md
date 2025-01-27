@@ -184,3 +184,8 @@ stage('Deploy') {
     }
 }
 ```
+
+testing template
+```groovy
+build job: './templates/serviceTemplate', parameters: [string(name: 'DIR', value: 'backend')]
+```
