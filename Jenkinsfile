@@ -14,7 +14,7 @@ pipeline {
             // }
             steps {
                 // build job: './templates/serviceTemplate.groovy', parameters: [string(name: 'DIR', value: 'backend')]
-                serviceTemplate(DIR: 'backend')
+                load serviceTemplate(DIR: 'backend')
             }
         }
     }
