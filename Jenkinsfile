@@ -7,6 +7,9 @@
 
 pipeline {
     agent any
+    environment {
+        BRANCH = "${env.GIT_BRANCH.split('/').length > 1 ? env.GIT_BRANCH.split('/')[1] : env.GIT_BRANCH}"
+    }
     stages {
         stage('Build Backend') {
             // when {
@@ -15,8 +18,8 @@ pipeline {
             steps {
                 // build job: './templates/serviceTemplate.groovy', parameters: [string(name: 'DIR', value: 'backend')]
                 //serviceTemplate(DIR)
-                // echo "Branch Name: ${env.BRANCH_NAME}"
-                build job: "backend/${env.GIT_BRANCH}"
+                echo "Branch Name: ${BRANCH}"
+                build job: "backend/${BRANCH}"
             }
         }
     }
